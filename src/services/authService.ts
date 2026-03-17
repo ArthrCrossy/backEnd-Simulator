@@ -38,7 +38,7 @@ export class AuthService {
                 email: user.email,
             },
             secret,
-            { expiresIn }
+            {expiresIn}
         );
 
         const safeUser = await findUserById(user.id);
@@ -46,7 +46,9 @@ export class AuthService {
         return {
             message: "Login realizado com sucesso.",
             token,
-            user: safeUser,
+            user: {
+                name: user.name,
+            },
         };
     }
 }
